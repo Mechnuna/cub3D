@@ -79,7 +79,7 @@ void	init_rc(t_window *window, t_player *play)
 	window->player_base[1] = 3;
 	//delete
 	play->pos_map_x = (float)window->player_base[0] + 0.5;
-	play->pos_map_y = (float)window->player_base[1] + 0.5;;
+	play->pos_map_y = (float)window->player_base[1] + 0.5;
 	play->main = window;
 	play->camera = 0.0;
 	play->move_speed = 0.08;
@@ -91,5 +91,5 @@ void	init_rc(t_window *window, t_player *play)
 	play->plane_x = -play->dir_y * 0.66;
 	play->plane_y = play->dir_x * 0.66;
 	init_texture(window);
-	init_keys(play);
+	init_keys(window->play);
 }

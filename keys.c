@@ -6,7 +6,9 @@ int	keypress(int keycode, t_window *wd)
 	if (keycode == 53)
 		exit_game(wd, 1);
 	if (keycode == 123)
+	{
 		wd->play->keys->la = 1;
+	}
 	if (keycode == 124)
 		wd->play->keys->ra = 1;
 	if (keycode == 1)
@@ -40,7 +42,9 @@ int	keyrelease(int keycode, t_window *wd)
 void	key_event(t_player *play, t_keys *keys)
 {
 	if (keys->a)
+	{
 		move_a(play);
+	}
 	if (keys->d)
 		move_d(play);
 	if (keys->s)
@@ -48,7 +52,9 @@ void	key_event(t_player *play, t_keys *keys)
 	if (keys->w)
 		move_w(play);
 	if (keys->la)
+	{
 		rotate_l(play);
+	}
 	if (keys->ra)
 		rotate_r(play);
 }

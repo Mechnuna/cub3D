@@ -110,8 +110,8 @@ void	ft_cub(t_window *wd)
 	wd->img->img = mlx_new_image(wd->mlx_ptr, 640, 480);
 	wd->img->addr = mlx_get_data_addr(wd->img->img, &wd->img->bits_per_pixel,
 	 	&wd->img->line_length, &wd->img->endian);
-	mlx_hook(wd->win_ptr, 2, 0, keypress, wd->play->keys);
-	mlx_hook(wd->win_ptr, 3, 0, keyrelease, wd->play->keys);
+	mlx_hook(wd->win_ptr, 2, 0, keypress, wd);
+	mlx_hook(wd->win_ptr, 3, 0, keyrelease, wd);
 	//mlx_hook(wd->win_ptr, 17, 0, free_all, wd->play);
 	mlx_loop_hook(wd->mlx_ptr, render, wd);
 	mlx_loop(wd->mlx_ptr);
