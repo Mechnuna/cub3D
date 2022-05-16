@@ -65,7 +65,7 @@ void	init_rc(t_window *window, t_player *play)
 	window->floor = 0X00FF0073;
 	window->info = malloc(sizeof(t_info));
 	ft_bzero(window->info, sizeof(t_info));
-	window->info->map = (char**)malloc(6* sizeof(char*));
+	window->info->map = (char**)malloc(5* sizeof(char*));
 	window->info->map[0] = "111111";
 	window->info->map[1] = "100101";
 	window->info->map[2] = "101001";

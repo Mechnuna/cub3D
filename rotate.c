@@ -15,6 +15,7 @@ void	rotate_l(t_player *play)
 					   - play->plane_y * sin(-play->rotation_speed);
 	play->plane_y = old_plane_x * sin(-play->rotation_speed)
 					   + play->plane_y * cos(play->rotation_speed);
+	printf("ROTATE_l\n");
 }
 
 void	rotate_r(t_player *play)
@@ -32,4 +33,5 @@ void	rotate_r(t_player *play)
 					   - play->plane_y * sin(play->rotation_speed);
 	play->plane_y = old_plane_x * sin(play->rotation_speed)
 					   + play->plane_y * cos(play->rotation_speed);
+	printf("ROTATE_R\n");
 }
