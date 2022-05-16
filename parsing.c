@@ -18,7 +18,7 @@ void	ft_initialiser_ceil_and_floor(t_window *total)
 {
 	total->mlx_ptr = 0;
 	total->win_ptr = 0;
-	total->info->total = total;
+	//total->info->total = total;
 	total->info->floor[0] = -1;
 	total->info->floor[1] = -1;
 	total->info->floor[2] = -1;
