@@ -66,7 +66,7 @@ int	keyrelease(int keycode, t_window *wd)
 	{
 		printf("Перед релизом кнопки\n");
 		wd->play->keys->w = 0;
-		printf("Кнопка в структуре занулена\n");;
+		printf("Кнопка в структуре занулена\n");
 	}
 	return (0);
 }
