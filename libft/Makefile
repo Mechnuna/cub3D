@@ -39,5 +39,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -rf ./libft.a
 
 re: fclean all

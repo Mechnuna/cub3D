@@ -7,13 +7,13 @@ LIBPATH = libft/
 MINILIBX = $(MINILIBX_DIRECTORY)libmlx.dylib
 MINILIBX_DIRECTORY = ./minilibx_mms_202002199/
 
-SRCS	= main.c parsing.c erroren.c keys.c inits.c raycasting.c movements.c rotate.c draw_and_dist.c
+SRCS	= main.c arr_utils.c parsing.c keys.c free.c init_txt.c movements.c rotate.c raycast.c pixel.c textures.c
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 FLAGS	= #-Wall -Wextra -Werror
 INCS	= .
 
-%.o : %.c 
+%.o : %.c
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o} -I${INCS}
 $(NAME): $(OBJS)
 		@$(MAKE) -C $(LIBPATH)
@@ -28,9 +28,12 @@ bonus: all
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) libmlx.dylib
+	@make fclean -C libft/
+
 
 clean:
 	$(RM) -f $(OBJS)
+	@make clean -C libft/
 
 re: fclean all
 

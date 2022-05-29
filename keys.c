@@ -1,110 +1,70 @@
-#include "cub3d.h"
-// 0 - A S -1 W - 13 D - 2 ARR LEFT - 124 ARR RIGHT - 123 ESC 53
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keys.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bbellatr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/29 16:50:57 by bbellatr          #+#    #+#             */
+/*   Updated: 2022/05/29 16:50:57 by bbellatr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	keypress(int keycode, t_window *wd)
+#include "cub3d.h"
+
+int	free_all(void)
 {
-	if (keycode == 53)
-		exit_game(wd, 1);
-	if (keycode == 123)
-	{
-		printf("Нажатие\n");
-		wd->play->keys->la = 1;
-		printf("Нажалось 1\n");
-	}
-	if (keycode == 124)
-	{
-		printf("Нажатие\n");
-		wd->play->keys->ra = 1;
-		printf("Нажалось 1\n");
-	}
-	if (keycode == 1)
-	{printf("Нажатие\n");
-		wd->play->keys->s = 1;
-		printf("Нажалось 1\n");
-	}
-	if (keycode == 0)
-	{ printf("Нажатие\n");
-		wd->play->keys->a = 1;
-		printf("Нажалось 1\n");}
-	if (keycode == 2)
-	{ printf("Нажатие\n");
-		wd->play->keys->d = 1;
-		printf("Нажалось 1\n");}
-	if (keycode == 13)
-	{ printf("Нажатие\n");
-		wd->play->keys->w = 1;
-		printf("Нажалось 1\n");}
+	exit(EXIT_SUCCESS);
+}
+
+int	keypress(int keycode, t_keys *keys)
+{
+	if (keycode == ESC)
+		free_all();
+	if (keycode == AR_LEFT)
+		keys->key_la = 1;
+	if (keycode == AR_RIGHT)
+		keys->key_ra = 1;
+	if (keycode == S)
+		keys->key_s = 1;
+	if (keycode == A)
+		keys->key_a = 1;
+	if (keycode == D)
+		keys->key_d = 1;
+	if (keycode == W)
+		keys->key_w = 1;
 	return (0);
 }
 
-int	keyrelease(int keycode, t_window *wd)
+int	keyrelease(int keycode, t_keys *keys)
 {
-	if (keycode == 123)
-	{
-		printf("Перед релизом кнопки\n");
-		wd->play->keys->la = 0;
-		printf("Кнопка в структуре занулена\n");
-	}
-	if (keycode == 124)
-	{printf("Перед релизом кнопки\n");
-		wd->play->keys->ra = 0;
-		printf("Кнопка в структуре занулена\n");}
-	if (keycode == 1)
-	{ printf("Перед релизом кнопки\n");
-		wd->play->keys->s = 0;
-		printf("Кнопка в структуре занулена\n");
-	}
-	if (keycode == 0)
-	{ printf("Перед релизом кнопки\n");
-		wd->play->keys->a = 0;
-		printf("Кнопка в структуре занулена\n");}
-	if (keycode == 2)
-	{printf("Перед релизом кнопки\n");
-		wd->play->keys->d = 0;
-		printf("Кнопка в структуре занулена\n");}
-	if (keycode == 13)
-	{
-		printf("Перед релизом кнопки\n");
-		wd->play->keys->w = 0;
-		printf("Кнопка в структуре занулена\n");
-	}
+	if (keycode == AR_LEFT)
+		keys->key_la = 0;
+	if (keycode == AR_RIGHT)
+		keys->key_ra = 0;
+	if (keycode == S)
+		keys->key_s = 0;
+	if (keycode == A)
+		keys->key_a = 0;
+	if (keycode == D)
+		keys->key_d = 0;
+	if (keycode == W)
+		keys->key_w = 0;
 	return (0);
 }
 
 void	key_event(t_player *play, t_keys *keys)
 {
-	if (keys->a)
-	{
-		printf("Кей ивент\n");
+	if (keys->key_a)
 		move_a(play);
-		printf("Кей ивент выполнен\n");
-
-	}
-	if (keys->d)
-	{printf("Кей ивент\n");
+	if (keys->key_d)
 		move_d(play);
-		printf("Кей ивент выполнен\n");
-	}
-	if (keys->s)
-	{printf("Кей ивент\n");
+	if (keys->key_s)
 		move_s(play);
-		printf("Кей ивент выполнен\n");
-	}
-	if (keys->w)
-	{printf("Кей ивент\n");
+	if (keys->key_w)
 		move_w(play);
-		printf("Кей ивент выполнен\n");}
-	if (keys->la)
-	{
-		{ printf("Кей ивент\n");
-			rotate_l(play);
-			printf("Кей ивент выполнен\n");
-		}
-	}
-	if (keys->ra)
-	{
-		printf("Кей ивент\n");
+	if (keys->key_la)
+		rotate_l(play);
+	if (keys->key_ra)
 		rotate_r(play);
-		printf("Кей ивент выполнен\n");
-	}
 }

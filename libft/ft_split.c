@@ -21,7 +21,7 @@ static int	ssc(char const *s, char c)
 	while (*s)
 	{
 		tmp = s;
-		while (*s != c &&*s != '\0')
+		while (*s != c && *s != '\0')
 			s++;
 		if (tmp != s)
 			n++;

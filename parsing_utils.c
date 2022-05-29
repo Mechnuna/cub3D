@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "cub3d.h"
 
 int	ft_check_empty_floor_ceiling(t_info *info, char *line)

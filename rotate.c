@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bbellatr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/29 17:08:00 by bbellatr          #+#    #+#             */
+/*   Updated: 2022/05/29 17:08:00 by bbellatr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	rotate_l(t_player *play)
@@ -7,15 +19,14 @@ void	rotate_l(t_player *play)
 
 	old_dir_x = play->dir_x;
 	old_plane_x = play->plane_x;
-	play->dir_x = play->dir_x * cos(-play->rotation_speed)
-					 - play->dir_y * sin(-play->rotation_speed);
-	play->dir_y = old_dir_x * sin(-play->rotation_speed)
-					 + play->dir_y * cos(-play->rotation_speed);
-	play->plane_x = play->plane_x * cos(-play->rotation_speed)
-					   - play->plane_y * sin(-play->rotation_speed);
-	play->plane_y = old_plane_x * sin(-play->rotation_speed)
-					   + play->plane_y * cos(play->rotation_speed);
-	printf("ROTATE_l\n");
+	play->dir_x = play->dir_x * cos(-play->rot_speed)
+		- play->dir_y * sin(-play->rot_speed);
+	play->dir_y = old_dir_x * sin(-play->rot_speed)
+		+ play->dir_y * cos(-play->rot_speed);
+	play->plane_x = play->plane_x * cos(-play->rot_speed)
+		- play->plane_y * sin(-play->rot_speed);
+	play->plane_y = old_plane_x * sin(-play->rot_speed)
+		+ play->plane_y * cos(play->rot_speed);
 }
 
 void	rotate_r(t_player *play)
@@ -25,13 +36,12 @@ void	rotate_r(t_player *play)
 
 	old_dir_x = play->dir_x;
 	old_plane_x = play->plane_x;
-	play->dir_x = play->dir_x * cos(play->rotation_speed)
-					 - play->dir_y * sin(play->rotation_speed);
-	play->dir_y = old_dir_x * sin(play->rotation_speed)
-					 + play->dir_y * cos(play->rotation_speed);
-	play->plane_x = play->plane_x * cos(play->rotation_speed)
-					   - play->plane_y * sin(play->rotation_speed);
-	play->plane_y = old_plane_x * sin(play->rotation_speed)
-					   + play->plane_y * cos(play->rotation_speed);
-	printf("ROTATE_R\n");
+	play->dir_x = play->dir_x * cos(play->rot_speed)
+		- play->dir_y * sin(play->rot_speed);
+	play->dir_y = old_dir_x * sin(play->rot_speed)
+		+ play->dir_y * cos(play->rot_speed);
+	play->plane_x = play->plane_x * cos(play->rot_speed)
+		- play->plane_y * sin(play->rot_speed);
+	play->plane_y = old_plane_x * sin(play->rot_speed)
+		+ play->plane_y * cos(play->rot_speed);
 }
